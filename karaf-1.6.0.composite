@@ -1,0 +1,97 @@
+############################################
+# Pax Runner Profile for                   #
+# Apache Felix Karaf Shell (Console) 1.6.0 #
+############################################
+
+###############
+##
+# Note:
+# - features:addUrl mvn:org.apache.felix.karaf/apache-felix-karaf/1.6.0/xml/features
+#
+#
+
+
+###################################################################################
+# scan-composite:mvn:org.ops4j.pax.runner.profiles/karaf.shell.lite/1.2.0/composite
+# pax-run.sh --log=DEBUG --profiles=log --console=false scan-composite:file:karaf-1.6.0.composite
+## http://repository.ops4j.org/maven2/org/ops4j/pax/runner/profiles/karaf.shell.lite/1.2.0/
+
+# Required profiles
+scan-composite:mvn:org.ops4j.pax.runner.profiles/felix.config//composite
+scan-composite:mvn:org.ops4j.pax.runner.profiles/log//composite
+
+# Required external dependencies
+#scan-bundle:mvn:org.apache.geronimo.blueprint/geronimo-blueprint/1.0.0
+#### or the followings ####
+scan-bundle:mvn:org.apache.aries.blueprint/org.apache.aries.blueprint/0.1-incubating
+scan-bundle:mvn:org.apache.aries.jmx/org.apache.aries.jmx.blueprint/0.1-incubating
+scan-bundle:mvn:org.apache.aries.jmx/org.apache.aries.jmx/0.1-incubating
+
+scan-bundle:mvn:org.apache.felix.gogo/org.apache.felix.gogo.runtime/0.4.0
+
+# Karaf Shell
+scan-bundle:mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.console/1.6.0
+scan-bundle:mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.commands/1.6.0
+scan-bundle:mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.config/1.6.0
+scan-bundle:mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.log/1.6.0
+scan-bundle:mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.osgi/1.6.0
+scan-bundle:mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.packages/1.6.0
+
+#-Dkaraf.startLocalConsole=true
+#-Dkaraf.systemBundlesStartLevel=0
+#####################################################################################
+
+# Required profiles
+scan-composite:mvn:org.ops4j.pax.runner.profiles/felix.obr//composite
+scan-bundle:mvn:org.apache.mina/mina-core/2.0.0-RC1
+scan-bundle:mvn:org.apache.sshd/sshd-core/0.4.0
+
+# Karaf Shell Additional
+## obr not needed in 1.6.0 ?
+## scan-bundle:mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.obr/1.6.0
+scan-bundle:mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.ssh/1.6.0
+
+
+#########################################
+# Customed
+#scan-features:mvn:org.apache.felix.karaf/apache-felix-karaf/1.4.0/xml/features!/wrapper
+#scan-features:mvn:org.apache.felix.karaf/apache-felix-karaf/1.4.0/xml/features!/war
+scan-features:mvn:org.apache.felix.karaf/apache-felix-karaf/1.6.0/xml/features!/webconsole
+#scan-features:mvn:org.apache.felix.karaf/apache-felix-karaf/1.6.0/xml/features!/features
+#scan-features:mvn:org.apache.felix.karaf/apache-felix-karaf/1.6.0/xml/features!/admin
+
+scan-features:mvn:org.apache.felix.karaf/apache-felix-karaf/1.6.0/xml/features!/management
+
+scan-bundle:mvn:org.apache.felix/org.osgi.compendium/1.4.0
+scan-bundle:mvn:org.apache.felix.karaf/org.apache.felix.karaf.commons/1.6.0
+scan-bundle:mvn:org.apache.felix.karaf.features/org.apache.felix.karaf.features.command/1.6.0
+scan-bundle:mvn:org.apache.felix.karaf.features/org.apache.felix.karaf.features.core/1.6.0
+scan-bundle:mvn:org.apache.felix.karaf.features/org.apache.felix.karaf.features.management/1.6.0
+scan-bundle:mvn:org.ops4j.pax.url/pax-url-mvn/1.1.2
+scan-bundle:mvn:org.ops4j.pax.url/pax-url-war/1.1.2
+scan-bundle:mvn:org.ops4j.pax.url/pax-url-wrap/1.1.2
+
+scan-features:mvn:org.apache.camel.karaf/apache-camel/2.3.0/xml/features!/camel
+scan-features:mvn:org.apache.camel.karaf/apache-camel/2.3.0/xml/features!/camel-groovy
+scan-bundle:mvn:org.apache.felix/org.apache.felix.fileinstall/2.0.0
+
+scan-bundle:mvn:org.apache.felix/org.apache.felix.prefs/1.0.4
+
+##############################
+# use --console=false and this will start the karaf console but not the TUI, 
+# org.ops4j.pax.runner.platform.console=false does not seem to work!!
+-Dkaraf.startLocalConsole=true
+-Dorg.ops4j.pax.runner.platform.console=false
+
+-Dkaraf.systemBundlesStartLevel=0
+-Dkaraf.startRemoteShell=true
+
+############
+#-Dorg.ops4j.pax.runner.platform.frameworkProfile=???
+#-Dfelix.config.properties=${this.relative}/runner/felix/config.ini
+-Dkaraf.home=/tmp/karafCamel230/runner
+-Dkaraf.base=/tmp/karafCamel230/runner
+
+#-Dfelix.config.properties=${this.relative}/etc/config.ini
+#-Dfelix.system.properties=file:/tmp/karaf160-osgi/runner/etc/config.properties
+

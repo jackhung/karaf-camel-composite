@@ -1,0 +1,14 @@
+#scan-bundle:mvn:org.apache.felix.gogo/org.apache.felix.gogo.runtime/0.4.0
+scan-bundle:mvn:org.apache.felix/org.apache.felix.configadmin/1.2.4
+scan-bundle:mvn:org.apache.felix/org.apache.felix.eventadmin/1.2.2
+scan-bundle:mvn:javax.ws.rs/jsr311-api/1.1.1
+# javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar
+scan-bundle:mvn:com.sun.jersey/jersey-core/1.3
+scan-bundle:mvn:com.sun.jersey/jersey-server/1.3
+#-> install ftp://www.ibiblio.org/pub/mirrors/apache/felix/org.apache.felix.configadmin-1.2.4.jar
+#-> install ftp://www.ibiblio.org/pub/mirrors/apache/felix/org.apache.felix.eventadmin-1.2.2.jar
+#-> install http://repo2.maven.org/maven2/org/ops4j/pax/web/pax-web-jetty-bundle/0.7.1/pax-web-jetty-bundle-0.7.1.jar
+#-> install http://download.java.net/maven/2/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar
+#-> install http://download.java.net/maven/2/com/sun/jersey/jersey-core/1.3-SNAPSHOT/jersey-core-1.3-SNAPSHOT.jar
+#-> install http://download.java.net/maven/2/com/sun/jersey/jersey-server/1.3-SNAPSHOT/jersey-server-1.3-SNAPSHOT.jar
+#-> install file:bundle-1.3-SNAPSHOT.jar

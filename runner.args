@@ -1,0 +1,5 @@
+--log=DEBUG 
+--profiles=log 
+--console=false 
+--repositories=+http://download.java.net/maven/2 
+
